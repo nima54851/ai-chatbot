@@ -1,77 +1,121 @@
-# AI 客服机器人 🤖
+# 🤖 灵犀 AI 客服机器人
 
-基于 Next.js 14 + Groq API 的智能客服聊天机器人，支持流式输出，专为「万能AI超市」产品销售场景定制。
+基于 **FastAPI** + **Groq Llama 3.3 70B** 的流式聊天机器人，专为「万能AI超市」产品销售场景定制。
 
-## 功能特性
+---
 
-- 🌊 **流式响应** — Groq Llama 3.3 70B 实时打字效果
-- 🎨 **深色主题** — 赛博朋克风格 UI，丝滑动画
-- 📱 **响应式** — 完美适配桌面和移动端
-- 🔒 **服务端路由** — API Key 安全存储在后端，不泄露前端
-- ⚡ **Edge Runtime** — Vercel Edge 部署，极速响应
-
-## 快速开始
-
-### 1. 克隆项目
-
-```bash
-git clone https://github.com/nima54851/ai-chatbot.git
-cd ai-chatbot
-```
-
-### 2. 配置 API Key
-
-在项目根目录创建 `.env.local`：
-
-```env
-GROQ_API_KEY=gsk_your_actual_key_here
-# 可选：指定模型（默认 llama-3.3-70b-versatile）
-GROQ_MODEL=llama-3.3-70b-versatile
-```
-
-> 🔑 获取 Groq API Key：[https://console.groq.com/keys](https://console.groq.com/keys)（免费注册，每月有免费额度）
-
-### 3. 本地运行
-
-```bash
-npm install
-npm run dev
-```
-
-打开 [http://localhost:3000](http://localhost:3000)
-
-### 4. 一键部署到 Vercel
+## 🚀 一键部署到 Vercel（推荐）
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/nima54851/ai-chatbot)
 
-部署后在 Vercel 环境变量中设置 `GROQ_API_KEY`。
+> 点击上方按钮 → 自动跳转到 Vercel → 点 **Deploy**
+>
+> 部署后在 Vercel 项目 **Settings → Environment Variables** 添加：
+> ```
+> GROQ_API_KEY = gsk_your_real_key
+> ```
+> 然后 **Redeploy** 即可！
 
-## 技术栈
+---
 
-| 技术 | 用途 |
-|------|------|
-| Next.js 14 App Router | 前端框架 |
-| Groq API (OpenAI兼容) | AI 大脑 |
-| TypeScript | 类型安全 |
-| CSS Variables | 深色主题样式 |
+## 🖥️ 本地运行
 
-## 可用 Groq 模型
+```bash
+# 克隆
+git clone https://github.com/nima54851/ai-chatbot.git
+cd ai-chatbot
 
-| 模型 | 特点 |
-|------|------|
-| `llama-3.3-70b-versatile` | 推荐，速度快，效果好 |
-| `llama-3.1-8b-instant` | 超快，适合简单问答 |
+# 安装依赖
+npm install
+
+# 配置 API Key
+echo "GROQ_API_KEY=你的key" > .env.local
+
+# 启动
+npm run dev
+# 打开 http://localhost:3000
+```
+
+---
+
+## 🐍 Python 版（FastAPI，无需 Node.js）
+
+```bash
+# 安装
+pip install fastapi uvicorn httpx
+
+# 配置
+export GROQ_API_KEY=你的key
+
+# 启动
+python app.py
+# 打开 http://localhost:3001
+```
+
+---
+
+## 🔑 获取 Groq API Key
+
+1. 访问 👉 https://console.groq.com/keys
+2. 注册/登录账号（免费）
+3. 点击 **Create API Key**
+4. 复制 key，填入环境变量
+
+**免费额度**：每月充足，免费模型包括 Llama 3.3 70B / Llama 3.1 8B / Mixtral 8x7B / Gemma 2
+
+---
+
+## 🛠️ 可用 Groq 模型
+
+| 模型 ID | 特点 |
+|--------|------|
+| `llama-3.3-70b-versatile` | ✅ 推荐，速度快，效果好 |
+| `llama-3.1-8b-instant` | 超快，轻量问答 |
 | `mixtral-8x7b-32768` | 均衡表现 |
 | `gemma2-9b-it` | 轻量免费 |
 
-## 产品信息
+设置方式：`GROQ_MODEL=llama-3.1-8b-instant`
 
-本机器人客服 Knows 以下产品：
+---
 
-- 📱 Telegram号码查询机器人 — ¥29/月
-- ⚡ GitHub Agent自动化系统 — ¥99/月
-- 📣 AI内容推流系统 — ¥199/月
-- 🔗 n8n工作流自动化系统 — ¥149/月
+## 💰 产品信息
 
-收款：PayPal `paypalyinanzo@hotmail.com` | USDT TRC20 `TFfwcPBSF2t5t5pruoRfN1McxnuStFNkX3Cy`
-客服：**@diquchaxun78_bot**
+客服 Knows 以下产品：
+
+| 产品 | 价格 | 功能 |
+|------|------|------|
+| 📱 Telegram号码查询机器人 | ¥29/月 | 查询 Telegram 用户基础信息 |
+| ⚡ GitHub Agent自动化系统 | ¥99/月 | GitHub 自动化运营 |
+| 📣 AI内容推流系统 | ¥199/月 | 多平台内容分发 |
+| 🔗 n8n工作流自动化 | ¥149/月 | 无代码工作流 |
+
+**收款**：PayPal `paypalyinanzo@hotmail.com` | USDT TRC20 `TFfwcPBSF2t5t5pruoRfN1McxnuStFNkX3Cy`  
+**客服**：@diquchaxun78_bot（付款后联系获取下载链接）
+
+---
+
+## 📁 项目结构
+
+```
+ai-chatbot/
+├── app/
+│   ├── page.tsx          ← 前端聊天界面（流式渲染）
+│   ├── layout.tsx        ← 页面布局
+│   ├── globals.css       ← 赛博朋克深色主题
+│   └── api/
+│       └── chat/
+│           └── route.ts  ← Edge Runtime API（Groq 调用）
+├── app.py                ← FastAPI 版本（Python，无需 Node）
+├── vercel.json           ← Vercel 配置
+└── package.json
+```
+
+---
+
+## ⚡ 技术亮点
+
+- 🌊 **SSE 流式输出** — 逐字渲染，打字机效果
+- 🔒 **API Key 安全** — Key 只存在服务端，不泄露前端
+- ⚡ **Edge Runtime** — Vercel Edge 节点，极速响应
+- 🎨 **深色赛博朋克 UI** — 流畅动画，专业视觉
+- 📱 **全响应式** — 桌面/平板/手机完美适配
